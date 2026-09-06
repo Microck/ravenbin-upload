@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ravenbin-upload"
+version = "0.1.0"
+description = "One-line temporary file uploads to Raven Bin"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [{ name = "Microck" }]
+dependencies = ["playwright>=1.45"]
+
+[project.scripts]
+ravenbin-upload = "ravenbin_upload.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
