@@ -29,7 +29,7 @@ playwright install chromium
 ravenbin-upload ./report.zip
 ```
 
-The share URL is printed to stdout. Progress and errors go to stderr.
+the share URL is printed to stdout. progress and errors go to stderr.
 
 ```bash
 link="$(ravenbin-upload /tmp/output.json)"
@@ -38,7 +38,7 @@ printf '%s\n' "$link"
 
 ## expiry
 
-Raven currently supports these expiry values:
+raven currently supports these expiry values:
 
 ```bash
 ravenbin-upload --expiry 5m ./short-lived.log
@@ -46,7 +46,7 @@ ravenbin-upload --expiry 15m ./report.zip
 ravenbin-upload --expiry 12h ./artifact.tar
 ```
 
-The default is `15m`. Available values are `5m`, `15m`, `1h`, `2h`, `4h`, and `12h`.
+the default is `15m`. available values are `5m`, `15m`, `1h`, `2h`, `4h`, and `12h`.
 
 ## why
 
@@ -60,9 +60,9 @@ if an agent or shell workflow needs to share a temporary artifact, this gives it
 
 ## how it works
 
-The command runs Raven's current web client in headless Chromium. It selects the file, chooses the expiry, and submits the normal `Create Bin` flow. Raven encrypts the file in the browser and uploads it in chunks.
+the command runs Raven's current web client in headless Chromium. it selects the file, chooses the expiry, and submits the normal `Create Bin` flow. Raven encrypts the file in the browser and uploads it in chunks.
 
-The wrapper stages the input in a temporary directory under the user's home directory. This supports Chromium sandbox variants that cannot read `/tmp`. The staged copy is removed after upload.
+the wrapper stages the input in a temporary directory under the user's home directory. this supports Chromium sandbox variants that cannot read `/tmp`. the staged copy is removed after upload.
 
 ## requirements
 
@@ -70,7 +70,7 @@ The wrapper stages the input in a temporary directory under the user's home dire
 - Playwright
 - Chromium, installed with `playwright install chromium` or selected with `RAVENBIN_CHROMIUM_PATH`
 
-For a system browser:
+for a system browser:
 
 ```bash
 export RAVENBIN_CHROMIUM_PATH=/usr/bin/chromium
@@ -78,11 +78,11 @@ export RAVENBIN_CHROMIUM_PATH=/usr/bin/chromium
 
 ## limits and security
 
-- Raven currently allows six active bins and two in-progress uploads.
-- Raven's public service can be busy or unavailable.
-- The complete returned URL is sensitive. The decryption key is stored after `#`.
-- Do not put returned URLs in logs or share them with people who should not read the file.
-- Do not use Raven Bin as the only protection for credentials, private keys, or regulated data.
+- raven currently allows six active bins and two in-progress uploads.
+- raven's public service can be busy or unavailable.
+- the complete returned URL is sensitive. the decryption key is stored after `#`.
+- do not put returned URLs in logs or share them with people who should not read the file.
+- do not use Raven Bin as the only protection for credentials, private keys, or regulated data.
 
 ## license
 
