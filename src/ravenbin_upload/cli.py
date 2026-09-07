@@ -25,8 +25,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--expiry",
         choices=("5m", "15m", "1h", "2h", "4h", "12h"),
-        default="15m",
-        help="How long Raven Bin keeps the upload (default: 15m).",
+        default="12h",
+        help="How long Raven Bin keeps the upload (default: 12h).",
     )
     parser.add_argument(
         "--timeout",

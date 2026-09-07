@@ -46,7 +46,7 @@ ravenbin-upload --expiry 15m ./report.zip
 ravenbin-upload --expiry 12h ./artifact.tar
 ```
 
-the default is `15m`. available values are `5m`, `15m`, `1h`, `2h`, `4h`, and `12h`.
+the default is `12h`, Raven's longest public expiry. available values are `5m`, `15m`, `1h`, `2h`, `4h`, and `12h`.
 
 ## why
 
