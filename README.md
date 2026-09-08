@@ -36,6 +36,22 @@ link="$(ravenbin-upload /tmp/output.json)"
 printf '%s\n' "$link"
 ```
 
+### fetch a file
+
+pass the complete Raven URL, including the part after `#`:
+
+```bash
+ravenbin-upload fetch "$link" --output /tmp/output.json
+```
+
+if `--output` is omitted, the stored filename is used. add `--force` to overwrite an existing file:
+
+```bash
+ravenbin-upload fetch "$link" --force
+```
+
+fetch uses Raven's browser client so its request token and decryption flow work correctly. the current fetch path supports files up to 100 MB. larger files use Raven's streaming browser path and are rejected instead of being saved incompletely.
+
 ## expiry
 
 raven currently supports these expiry values:
